@@ -1,0 +1,59 @@
+import java.util.Scanner; 
+
+public class AccountWithdrawalTest { 
+
+    public static void main(String[] args) { 
+
+        boolean appStatus; 
+
+        Scanner keyboard = new Scanner(System.in); 
+
+        Account testAccount = new Account(1000.00); 
+
+        do { 
+
+            System.out.println("You have a balance of $" + testAccount.getBalance()); 
+
+            System.out.println("Enter a deposit amount:"); 
+
+            double a = keyboard.nextDouble(); 
+
+            double tranDeposit = testAccount.deposit(a); 
+
+            System.out.println("Your new balance is was $" + tranDeposit); 
+
+            System.out.println("Enter Withdrawal Amount:"); 
+
+            double b = keyboard.nextDouble(); 
+
+            double tranWithdrawal = testAccount.withdraw(b); 
+
+            System.out.println("Your new balance is was $" + tranWithdrawal); 
+
+            System.out.println("Do you another transaction? (Y or N)"); 
+
+            Scanner kb = new Scanner(System.in); 
+
+            String choice = kb.nextLine(); 
+
+            if (choice.equalsIgnoreCase("y")) { 
+
+               appStatus = false; 
+
+            } 
+
+            else 
+
+                appStatus = true; 
+
+        } 
+
+        while (!appStatus); 
+
+        System.out.println("Good by!"); 
+
+        System.exit(0); 
+
+    } 
+
+} 

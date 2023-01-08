@@ -1,0 +1,43 @@
+import java.util.Scanner; 
+
+import java.util.InputMismatchException; 
+
+public class NotANumberTest { 
+
+    public static void main(String[] args) { 
+
+        boolean appStatus; 
+
+        do 
+
+            try { 
+
+                int num = 0; 
+
+                System.out.println("Enter a number:"); 
+
+                Scanner keyboard = new Scanner(System.in); 
+
+                num = keyboard.nextInt(); 
+
+                System.out.println(num); 
+
+                appStatus = true; 
+
+            } catch (InputMismatchException e) { 
+
+                System.out.println("Error: Not a number!...try again"); 
+
+                appStatus = false; 
+
+            } 
+
+        while (!appStatus); 
+
+        System.out.println("Thanks...Good Job!"); 
+
+        System.exit(0); 
+
+    } 
+
+} 

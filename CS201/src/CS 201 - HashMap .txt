@@ -1,0 +1,99 @@
+import java.util.HashMap; 
+
+import java.util.Scanner; 
+
+ 
+
+public class PracticeProgram_5 { 
+
+ 
+
+    public static void main(String[] args) { 
+
+ 
+
+        Scanner keyboard = new Scanner(System.in); 
+
+ 
+
+        HashMap<Integer, Integer> someThing = new HashMap<>(); 
+
+ 
+
+        System.out.println("Enter random positive numbers, enter a -1 to when done"); 
+
+ 
+
+        Integer a; 
+
+ 
+
+        do { 
+
+ 
+
+            a = keyboard.nextInt(); 
+
+ 
+
+            if (a > -1) { 
+
+ 
+
+                if(someThing.containsKey(a)) { 
+
+ 
+
+                    someThing.put(a, someThing.get(a) + 1); 
+
+ 
+
+                } 
+
+                else { 
+
+ 
+
+                    someThing.put(a, 1); 
+
+ 
+
+                } 
+
+ 
+
+            } 
+
+ 
+
+        } 
+
+ 
+
+        while(a >= 0); 
+
+ 
+
+        //System.out.println(someThing); 
+
+ 
+
+        System.out.println("\n\nSearch Result:"); 
+
+ 
+
+        for (Integer s: someThing.keySet()) { 
+
+ 
+
+            System.out.println("The number " + s + " occurs " + someThing.get(s) + " times"); 
+
+        } 
+
+ 
+
+    } 
+
+ 
+
+} 

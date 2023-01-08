@@ -1,0 +1,63 @@
+import java.util.ArrayList; 
+
+import java.util.Collections; 
+
+import java.util.Scanner; 
+
+public class PracticeProgram_4 { 
+
+    public static void main(String[] args) { 
+
+        int grade = 0; 
+
+        ArrayList<Integer> gradeArrayList = new ArrayList<Integer>(); 
+
+        Scanner keyboard = new Scanner(System.in); 
+
+        boolean nextItem = true; 
+
+        System.out.println("Enter Grades (Enter -1 when done):"); 
+
+        while (nextItem) { 
+
+            grade = keyboard.nextInt(); 
+
+            if (grade >= 0) { 
+
+ 
+
+                gradeArrayList.add(grade); 
+
+            } else { 
+
+                nextItem = false; 
+
+            } 
+
+        } 
+
+        int sum = 0; 
+
+        int arraySize = gradeArrayList.size(); 
+
+        for (Integer integer : gradeArrayList) { 
+
+            int someGrade; 
+
+            someGrade = integer; 
+
+            sum = sum + someGrade; 
+
+        } 
+
+        int avg = sum / arraySize; 
+
+        System.out.println("AVERAGE grade: " + avg); 
+
+        System.out.println("MAX grade: " + Collections.max(gradeArrayList)); 
+
+        System.out.println("MIN grade: " + Collections.min(gradeArrayList)); 
+
+    } 
+
+} 

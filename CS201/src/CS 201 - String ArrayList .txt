@@ -1,0 +1,43 @@
+import java.util.ArrayList; 
+
+public class SortTester { 
+
+    public static void main(String[] args) { 
+
+        ArrayList<String> stringArray = new ArrayList<String>(); 
+
+        stringArray.add("John"); 
+
+        stringArray.add("Bob"); 
+
+        stringArray.add("Sam"); 
+
+        stringArray.add("Harry"); 
+
+        stringArray.add("Larry"); 
+
+        stringArray.add("Todd"); 
+
+        stringArray.add("Adam"); 
+
+        System.out.println("\nSELECTION SORT"); 
+
+        ArraySorter_1.selectionSort(stringArray); 
+
+        System.out.println(stringArray); 
+
+        System.out.println("\nBUBBLE SORT"); 
+
+        ArraySorter_2.bubbleSort(stringArray); 
+
+        System.out.println(stringArray); 
+
+        System.out.println("\nINSERTION SORT"); 
+
+        ArraySorter_3.insertionSort(stringArray); 
+
+        System.out.println(stringArray); 
+
+    } 
+
+} 

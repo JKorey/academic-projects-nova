@@ -1,0 +1,57 @@
+import java.util.ArrayList; 
+
+ 
+
+public class ArraySorter_2 
+
+{ 
+
+    public static void bubbleSort(ArrayList<String> anArray) 
+
+    { 
+
+        for (int index = 0; index < anArray.size() - 1; index++) 
+
+        { 
+
+            getIndexOfSmallest(index, anArray); 
+
+            //interchange(index, indexOfNextSmallest, anArray); 
+
+        } 
+
+    } 
+
+    private static void getIndexOfSmallest(int startIndex, ArrayList<String> a) 
+
+    { 
+
+        for (int index = 0; index < a.size() -1; index++) 
+
+        { 
+
+            if (a.get(index).compareTo(a.get(index + 1)) > index ) 
+
+            { 
+
+                interchange(index, a); 
+
+            } 
+
+        } 
+
+    } 
+
+    private static void interchange(int i, ArrayList<String> a) 
+
+    { 
+
+        String temp = a.get(i); 
+
+        a.set(i, a.get(i + 1)); 
+
+        a.set(i + 1, temp); 
+
+    } 
+
+} 

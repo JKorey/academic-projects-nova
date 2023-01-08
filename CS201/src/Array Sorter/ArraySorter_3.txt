@@ -1,0 +1,47 @@
+import java.util.ArrayList; 
+
+ 
+
+public class ArraySorter_3 
+
+{ 
+
+    public static void insertionSort(ArrayList<String> someArrayList) 
+
+    { 
+
+        String temp; 
+
+        for (int i = 1; i < someArrayList.size(); i++) { 
+
+            temp = someArrayList.get(i); 
+
+            interchange(i, someArrayList, temp); 
+
+        } 
+
+        //return someArrayList; 
+
+    } 
+
+    private static void interchange(int i, ArrayList<String> a, String temp) 
+
+    { 
+
+        int j = i - 1; 
+
+        while (j >= 0 && a.get(j).compareTo(temp) > 0) { 
+
+            a.set(j + 1, a.get(j)); 
+
+ 
+
+            j--; 
+
+        } 
+
+        a.set(j + 1, temp); 
+
+    } 
+
+} 

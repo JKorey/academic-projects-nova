@@ -1,0 +1,55 @@
+import java.util.Scanner; 
+
+public class PracticeProgram_3 { 
+
+    private static int getFactorial(int number) { 
+
+        int result; 
+
+        if (number == 0) { 
+
+            return  1; 
+
+        } 
+
+        else { 
+
+            result = number * getFactorial(number - 1); 
+
+            return result; 
+
+        } 
+
+    } 
+
+    public static void main(String[] args) { 
+
+        Scanner keyboard = new Scanner(System.in); 
+
+        System.out.println("Enter a number for its factorial (Type -1 to quit): "); 
+
+        int value; 
+
+        do { 
+
+            value = keyboard.nextInt(); 
+
+            if (value > -1) { 
+
+                int result = getFactorial(value); 
+
+                System.out.println("The factorial is " +result); 
+
+                System.out.println("Enter another number:"); 
+
+            } 
+
+        } 
+
+        while(value >= 0); 
+
+        System.out.println("Thanks for playing...GOOD BY!!!"); 
+
+    } 
+
+} 

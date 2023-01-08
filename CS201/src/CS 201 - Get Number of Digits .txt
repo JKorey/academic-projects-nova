@@ -1,0 +1,39 @@
+import java.util.Scanner; 
+
+public class PracticeProgram_1 { 
+
+    private static int getNumberOfDigits(int number) { 
+
+        int result; 
+
+        if (number == 0) { 
+
+            result = 0; 
+
+        } 
+
+        else { 
+
+            result = getNumberOfDigits(number / 10) + 1; 
+
+        } 
+
+        return result; 
+
+    } 
+
+    public static void main(String[] args) { 
+
+        Scanner keyboard = new Scanner(System.in); 
+
+        System.out.println("Enter a positive or negative integer:"); 
+
+        int number = keyboard.nextInt(); 
+
+        int result = getNumberOfDigits(number); 
+
+        System.out.println("The number of digits in the number " +number+ " are " +result); 
+
+    } 
+
+} 

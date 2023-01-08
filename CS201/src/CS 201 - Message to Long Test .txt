@@ -1,0 +1,63 @@
+import java.util.Scanner; 
+
+ 
+
+public class MessageTooLongAssignmentTest { 
+
+    public static void main(String[] args) { 
+
+        boolean appStatus = false; 
+
+        Scanner keyboard = new Scanner(System.in); 
+
+        do { 
+
+            try { 
+
+                System.out.println("Enter a line of text with no more then 20 characters:"); 
+
+                String textMessage = keyboard.nextLine(); 
+
+                int messageLength = textMessage.length(); 
+
+                if ((messageLength > 20)) { 
+
+                    throw new MessageTooLongException(); 
+
+                } 
+
+                else{ 
+
+                    System.out.println("You entered " +messageLength+ " characters, which is an acceptable length."); 
+
+                } 
+
+            } catch (MessageTooLongException e) { 
+
+                System.out.println(e.getMessage()); 
+
+            } 
+
+            System.out.println("Would you like to enter a new line or quit?"); 
+
+            System.out.println("(Enter \"new\" for newline or \"quit\" to Quit)"); 
+
+            String choice = keyboard.nextLine(); 
+
+            if (choice.equalsIgnoreCase("quit")) { 
+
+                appStatus = true; 
+
+            } 
+
+        } 
+
+        while (!appStatus); 
+
+        System.out.println("Good by!"); 
+
+        System.exit(0); 
+
+    } 
+
+} 

@@ -1,0 +1,45 @@
+import java.util.ArrayList; 
+
+import java.util.Collections; 
+
+import java.util.Random; 
+
+ 
+
+public class FinalProgram_2 { 
+
+ 
+
+    private static void sort(ArrayList<Integer> list) { 
+
+        Collections.sort(list); 
+
+    } 
+
+    public static void main(String[] args) { 
+
+        ArrayList<Integer> integersList = new ArrayList<>(); 
+
+        Random rand = new Random(); 
+
+        int count = 0; 
+
+        for (int i = 0; i < 10; i++) { 
+
+            Integer number = rand.nextInt(1001); 
+
+            integersList.add(count, number); 
+
+            count++; 
+
+        } 
+
+        sort(integersList); 
+
+        System.out.println("LIST IN ASCENDING ORDER: "); 
+
+        System.out.println(integersList); 
+
+    } 
+
+} 

@@ -1,0 +1,53 @@
+import java.util.*; 
+
+public class FinalProgram_3 { 
+
+    private static void randomIntegers() { 
+
+        HashMap<Integer, Integer> list = new HashMap<>(); 
+
+        Random rand = new Random(); 
+
+        int count = 0; 
+
+        System.out.println("Generating Numbers...."); 
+
+        while(count < 1000000) { 
+
+            Integer number = rand.nextInt(21); 
+
+            if(number > 10) { 
+
+                if(list.containsKey(number)) { 
+
+                    list.put(number, list.get(number) +1); 
+
+                    count++; 
+
+                } 
+
+                else { 
+
+                    list.put(number, 1); 
+
+                } 
+
+           } 
+
+        } 
+
+        for (Integer s: list.keySet()) { 
+
+            System.out.println("The number " + s + " occurs " + list.get(s) + " times"); 
+
+        } 
+
+    } 
+
+    public static void main(String[] args) { 
+
+        randomIntegers(); 
+
+    } 
+
+} 

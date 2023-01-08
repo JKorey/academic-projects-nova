@@ -1,0 +1,5 @@
+a.	To compile Java class: javac Triangle.java
+b.	To compile JUnit test: javac -cp junit.jar;. TriangleTest.java
+c.	To run JUnit test:   java -cp junit.jar;hamcrest-core.jar;. org.junit.runner.JUnitCore TriangleTest
+
+

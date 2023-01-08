@@ -1,0 +1,51 @@
+import java.util.Scanner; 
+
+public class PracticeProgram_4 { 
+
+    private static int getSumOfNthInteger(int number) { 
+
+        if (number <= 1) { 
+
+            return number; 
+
+        } 
+
+        else { 
+
+            return number + getSumOfNthInteger(number - 1); 
+
+        } 
+
+    } 
+
+    public static void main(String[] args) { 
+
+        Scanner keyboard = new Scanner(System.in); 
+
+        System.out.println("Enter a number or several numbers for the sum of the first n integers, type -1 to end"); 
+
+        int value; 
+
+        do { 
+
+            value = keyboard.nextInt(); 
+
+            if (value > -1) { 
+
+                int result = getSumOfNthInteger(value); 
+
+                System.out.println("The sum is " +result); 
+
+                System.out.println("Enter another number:"); 
+
+            } 
+
+        } 
+
+        while(value >= 0); 
+
+        System.out.println("Thanks for playing...GOOD BY!!!"); 
+
+    } 
+
+} 

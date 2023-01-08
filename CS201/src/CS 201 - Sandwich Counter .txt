@@ -1,0 +1,85 @@
+import java.util.Scanner; 
+
+public class SandwichCounter { 
+
+    public static void main(String[] args) { 
+
+        Scanner kb = new Scanner(System.in); 
+
+        String selection; 
+
+        String[] sandwiches = {"Cheese Stake","Chicken","Salad"}; 
+
+        double[] sandwichPrices = {8.5,7.5,7.0}; 
+
+        showMenu(sandwiches, sandwichPrices); 
+
+        System.out.println("\nEnter a choice"); 
+
+        selection = kb.nextLine(); 
+
+        int selectionResult = itemIndex(sandwiches, selection); 
+
+        double swPrice = getPrice(selectionResult, sandwichPrices); 
+
+        System.out.println("\nHow many would you like?"); 
+
+        int totalOrdered = kb.nextInt(); 
+
+        double totalPrice = swPrice * totalOrdered; 
+
+        System.out.println("\nYou ordered " +totalOrdered+ " " +sandwiches[selectionResult -1]+ " and your total price is $" + totalPrice); 
+
+    } 
+
+    private static void showMenu(String[] sandwiches, double[] sandwichPrices) { 
+
+        System.out.println("\nWELCOME! This is our sandwich menu:"); 
+
+        System.out.println("==============================="); 
+
+        for (int i = 0; i < 3; i++) { 
+
+            String sandwichSelection = sandwiches[i]; 
+
+            double sandwichSelectionPrice = sandwichPrices[i]; 
+
+            System.out.println("- " +sandwichSelection+ " $" +sandwichSelectionPrice); 
+
+        } 
+
+    } 
+
+    private static int itemIndex (String[] sandwiches,String selection) { 
+
+        int item = 0; 
+
+            for (int i = 0; i < sandwiches.length; i++) { 
+
+                if (sandwiches[i].equalsIgnoreCase(selection)) { 
+
+                    item = i +1; 
+
+                } 
+
+            } 
+
+        return item; 
+
+    } 
+
+    private static double getPrice(int itemIndex, double[] sandwichPrices) { 
+
+        double price = 0.0; 
+
+        for (int i = 0; i < sandwichPrices.length; i++) { 
+
+            price = sandwichPrices[itemIndex - 1]; 
+
+        } 
+
+        return price; 
+
+    } 
+
+} 

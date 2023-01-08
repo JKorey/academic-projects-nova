@@ -1,0 +1,133 @@
+import java.io.*; 
+
+import java.util.Scanner; 
+
+class PracticeProgram_2 { 
+
+    public static void main(String[] args) { 
+
+        int counter = 0; 
+
+        String inputFilePath = "C:\\temp\\"; 
+
+        String outputFilePath = "C:\\temp\\"; 
+
+        Scanner keyboard = new Scanner(System.in); 
+
+        try 
+
+        { 
+
+            System.out.println("Enter input file name (input.txt):");  //input.txt 
+
+            String inputFile = inputFilePath + keyboard.nextLine(); 
+
+            File theFile = new File(inputFile); 
+
+            Scanner inputStream = new Scanner(theFile); 
+
+            System.out.println("Opening File...."); 
+
+            while(inputStream.hasNextLine()){ 
+
+                counter++; 
+
+                String line = inputStream.nextLine(); 
+
+            } 
+
+            inputStream.close(); 
+
+            System.out.println("Reading Data...."); 
+
+            int[] lineArray = new int[counter]; 
+
+            System.out.println("Enter the output File name (output.txt):"); //output.txt 
+
+            String outputFile = outputFilePath + keyboard.nextLine(); 
+
+            counter = 0; 
+
+            inputStream = new Scanner(theFile); 
+
+            while (inputStream.hasNextLine()) { 
+
+                int line = inputStream.nextInt(); 
+
+                lineArray[counter++] = line; 
+
+            } 
+
+            System.out.println("Removing Duplicated Data...."); 
+
+            int[] tempArray = removeDuplicates(lineArray); 
+
+            File secondFile = new File(outputFile); 
+
+            PrintWriter outputStream = new PrintWriter(secondFile); 
+
+            System.out.println("Writing Data to New File...."); 
+
+            for (int s : tempArray) { 
+
+                if (s != 0) { 
+
+                    outputStream.println(s); 
+
+                } 
+
+            } 
+
+            outputStream.close(); 
+
+            System.out.println("Process Complete!!!!"); 
+
+        } 
+
+        catch (FileNotFoundException e) 
+
+        { 
+
+            System.out.println("File Not Found!!!!"); 
+
+        } 
+
+    } 
+
+    private static int[] removeDuplicates(int[] someArray) { 
+
+        int count = 1; 
+
+        int[] emptyArray = new int[someArray.length]; 
+
+        boolean isThere = false; 
+
+        int duplicateIndex = 0; 
+
+        for (int i = 0; i < someArray.length; i++) { 
+
+            for (int j = count; j < someArray.length; j++) { 
+
+                if (someArray[i] == someArray[j] && j != i) { 
+
+                    duplicateIndex = count; 
+
+                } 
+
+            } 
+
+            if (duplicateIndex != count) { 
+
+                emptyArray[i] = someArray[i]; 
+
+            } 
+
+            count++; 
+
+        } 
+
+        return emptyArray; 
+
+    } 
+
+} 

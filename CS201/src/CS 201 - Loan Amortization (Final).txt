@@ -1,0 +1,193 @@
+import java.util.Scanner; 
+
+ 
+
+class LoanAmortization { 
+
+    private static double interestRate; 
+
+    private static double interestPayment; 
+
+    private static double principal; 
+
+    private static double paymentAmount; 
+
+    private static int paymentNumber = 0; 
+
+    private static int numberYears; 
+
+    private static int numberPayments; 
+
+    private static int compoundPeriod = 12; 
+
+    private static double totalPayment; 
+
+ 
+
+    void findLoanMonthlyPayment(double someInterestRate, double somePrinciple, int someNumberYears) { 
+
+        setPrincipal(somePrinciple); 
+
+        setInterestRate(someInterestRate); 
+
+        setNumberYears(someNumberYears); 
+
+        setInterestPayment((interestRate / 100) / compoundPeriod); 
+
+        setPaymentAmount((principal * interestPayment) / (1 - (Math.pow((1+ interestPayment), (-1 * (compoundPeriod * numberYears)))))); 
+
+        setTotalPayment(); 
+
+        getLoanReport(); 
+
+    } 
+
+    private static void getLoanAmortizationSchedule(double somePrinciple) { 
+
+        double interestPart = somePrinciple * interestPayment; 
+
+        double principlePart = paymentAmount - interestPart; 
+
+ 
+
+        if(principal <= 0) { 
+
+            System.out.println(); 
+
+        } 
+
+        else { 
+
+            principal = somePrinciple - principlePart; 
+
+            paymentNumber++; 
+
+            System.out.print("" + paymentNumber + " "); 
+
+            System.out.printf("Interest: $%.2f Principal: $%.2f Balance: $%.2f%n",interestPart,principlePart,principal); 
+
+            getLoanAmortizationSchedule(principal); 
+
+        } 
+
+    } 
+
+    private void setTotalPayment() { 
+
+        setNumberPayments(numberYears * compoundPeriod); 
+
+        totalPayment = numberPayments * paymentAmount; 
+
+    } 
+
+    private void setInterestRate(double interestRate) { 
+
+        LoanAmortization.interestRate = interestRate; 
+
+    } 
+
+    private void setInterestPayment(double interestPayment) { 
+
+        LoanAmortization.interestPayment = interestPayment; 
+
+    } 
+
+    private void setPrincipal(double principal) { 
+
+        LoanAmortization.principal = principal; 
+
+    } 
+
+    private void setPaymentAmount(double paymentAmount) { 
+
+        LoanAmortization.paymentAmount = paymentAmount; 
+
+    } 
+
+    private void setNumberYears(int numberYears) { 
+
+        LoanAmortization.numberYears = numberYears; 
+
+    } 
+
+    private void setNumberPayments(int numberPayments) { 
+
+        LoanAmortization.numberPayments = numberPayments; 
+
+    } 
+
+    private double getInterestRate() { 
+
+        return interestRate; 
+
+    } 
+
+    private double getPrincipal() { 
+
+        return principal; 
+
+    } 
+
+    private double getPaymentAmount() { 
+
+        return paymentAmount; 
+
+    } 
+
+     private int getNumberYears() { 
+
+        return numberYears; 
+
+    } 
+
+    private void getLoanReport() { 
+
+        System.out.println(); 
+
+        System.out.println("LOAN AMORTIZATION SCHEDULE"); 
+
+        System.out.printf("Loan Amount: $%.2f%n",getPrincipal()); 
+
+        System.out.println("Number of Years: " + getNumberYears()); 
+
+        System.out.println("Annual Interest Rate: " + getInterestRate()+ "%"); 
+
+        System.out.printf("Monthly Payment: $%.2f%n", getPaymentAmount()); 
+
+        System.out.printf("Total Payment: $%.2f%n",totalPayment); 
+
+        System.out.println("....................................................................."); 
+
+        System.out.println("Payment #   Interest    Principle    Balance"); 
+
+        System.out.println("....................................................................."); 
+
+        getLoanAmortizationSchedule(principal); 
+
+    } 
+
+    public static void main(String[] args) { 
+
+        Scanner keyboard = new Scanner(System.in); 
+
+        System.out.println("AMORTIZATION SCHEDULE"); 
+
+        System.out.println("Enter the loan amount:"); 
+
+        double principal = keyboard.nextDouble(); 
+
+        System.out.println("Enter the Interest Rate %:"); 
+
+        double interestRate = keyboard.nextDouble(); 
+
+        System.out.println("Enter number of years for the loan:"); 
+
+        int numberYears = (int) keyboard.nextDouble(); 
+
+        LoanAmortization myLoan = new LoanAmortization(); 
+
+        myLoan.findLoanMonthlyPayment(interestRate, principal, numberYears); 
+
+    } 
+
+} 

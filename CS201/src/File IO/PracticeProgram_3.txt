@@ -1,0 +1,47 @@
+import java.io.File; 
+
+import java.io.FileNotFoundException; 
+
+import java.util.Scanner; 
+
+public class PracticeProgram_3 { 
+
+    public static void main(String[] args) { 
+
+        int count = 0; 
+
+        int count1 = 0; 
+
+        try 
+
+        { 
+
+            String filePath = "C:\\temp\\words.txt"; 
+
+            File theFile = new File(filePath); 
+
+            Scanner inputStream = new Scanner(theFile); 
+
+            while(inputStream.hasNextLine()) { 
+
+                String line = inputStream.nextLine(); 
+
+                if (line.endsWith("dous"))  { 
+
+                    System.out.println(line); 
+
+                } 
+
+            } 
+
+            inputStream.close(); 
+
+        } catch (FileNotFoundException e) { 
+
+            System.out.println("EXCEPTION: File Not Found"); 
+
+        } 
+
+    } 
+
+} 

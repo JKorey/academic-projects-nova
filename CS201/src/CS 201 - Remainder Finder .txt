@@ -1,0 +1,103 @@
+import java.util.InputMismatchException; 
+
+import java.util.Scanner; 
+
+public class CatchException { 
+
+    public static void main(String[] args) { 
+
+        boolean toggle = true; 
+
+        char a; 
+
+        System.out.println("REMAINDER FINDER:\n"); 
+
+        do { 
+
+            try { 
+
+                Scanner kb = new Scanner(System.in); 
+
+                int x; 
+
+                int y; 
+
+                System.out.println("Enter a first number:"); 
+
+                x = kb.nextInt(); 
+
+                a = (char) x; 
+
+                if((a >= 48) && (a <= 58)) { 
+
+                    throw new InputMismatchException(); 
+
+                } 
+
+                System.out.println("Enter another number:"); 
+
+                y = kb.nextInt(); 
+
+                if(y == 0) { 
+
+                    throw new ArithmeticException("EXCEPTION: CAN'T DIVIDE BY ZERO!"); 
+
+                } 
+
+                a = (char) y; 
+
+                if((a >= 48) && (a <= 58)) { 
+
+                    throw new InputMismatchException(); 
+
+                } 
+
+                int remainderXY = x % y; 
+
+                System.out.println("Remainder: " +remainderXY); 
+
+                System.out.println("\nHit ENTER to go again or type EXIT to quit."); 
+
+                Scanner kbs = new Scanner(System.in); 
+
+                String response = kbs.nextLine(); 
+
+                if (response.equalsIgnoreCase("exit")) { 
+
+                    toggle = true; 
+
+                } 
+
+                else toggle = false; 
+
+            } 
+
+            catch (ArithmeticException g) { 
+
+                System.out.print(g.getMessage()); 
+
+                System.out.println("---> TRY AGAIN, PLEASE."); 
+
+                toggle = false; 
+
+            } 
+
+            catch (InputMismatchException e) { 
+
+                System.out.println("\"EXCEPTION: MUST USE A NUMBER\"---> TRY AGAIN, PLEASE."); 
+
+                toggle = false; 
+
+            } 
+
+ 
+
+        } 
+
+        while (!toggle); 
+
+        System.out.println("GOOD BUY"); 
+
+    } 
+
+} 

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/CS100/CS100.iml" filepath="$PROJECT_DIR$/CS100/CS100.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CS201/CS201.iml" filepath="$PROJECT_DIR$/CS201/CS201.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CS202/CS202.iml" filepath="$PROJECT_DIR$/CS202/CS202.iml" />
+      <module fileurl="file://$PROJECT_DIR$/academic-projects-nova.iml" filepath="$PROJECT_DIR$/academic-projects-nova.iml" />
+    </modules>
+  </component>
+</project>

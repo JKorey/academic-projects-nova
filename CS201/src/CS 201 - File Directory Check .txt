@@ -1,0 +1,51 @@
+import java.io.File; 
+
+import java.util.Scanner; 
+
+ 
+
+public class FileDirectoryCheck { 
+
+    public static void main(String[] args) { 
+
+        Scanner keyboard = new Scanner(System.in); 
+
+        System.out.println("Enter a File Directory or Path:"); 
+
+        String inputDirectory = keyboard.nextLine(); 
+
+        File fileDirectory = new File(inputDirectory); 
+
+        int numberOfFiles = recursionCounter(fileDirectory); 
+
+        System.out.println("Number of Files (Excluding Directories): " + numberOfFiles); 
+
+    } 
+
+    private static int recursionCounter(File someInputDirectory) { 
+
+        int fileCounter =0; 
+
+        if (someInputDirectory.isFile()) { 
+
+            fileCounter++; 
+
+        } 
+
+        else { 
+
+            File[] someFiles = someInputDirectory.listFiles(); 
+
+            for (int i = 0; someFiles != null && i < someFiles.length; i++) { 
+
+                fileCounter = fileCounter  + recursionCounter(someFiles[i]); 
+
+            } 
+
+        } 
+
+        return fileCounter; 
+
+    } 
+
+} 

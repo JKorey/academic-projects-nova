@@ -1,0 +1,43 @@
+public class PracticeProgram_2 { 
+
+    private static int getSumOfIntegerArray(int[] numberArray, int index) { 
+
+ 
+
+        int result = 0; 
+
+ 
+
+        if (numberArray.length == 1) { 
+
+            result = numberArray[0]; 
+
+        } 
+
+        else if (index > 0){ 
+
+            index--; 
+
+            result = numberArray[index] + getSumOfIntegerArray(numberArray, index); 
+
+        } 
+
+        return result; 
+
+    } 
+
+    public static void main(String[] args) { 
+
+        int[] integerArray = {5,5,5,5,5,5,5,5,5}; 
+
+        int index = integerArray.length; 
+
+        int sum = getSumOfIntegerArray(integerArray, index); 
+
+ 
+
+        System.out.println("Sum of the array is " +sum); 
+
+    } 
+
+} 

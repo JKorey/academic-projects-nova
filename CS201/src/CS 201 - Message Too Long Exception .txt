@@ -1,0 +1,17 @@
+public class MessageTooLongException extends Exception { 
+
+ 
+
+    MessageTooLongException() { 
+
+        super("EXCEPTION: MESSAGE TOO LONG!!!!"); 
+
+    } 
+
+    MessageTooLongException(String message) { 
+
+        super(message); 
+
+    } 
+
+} 

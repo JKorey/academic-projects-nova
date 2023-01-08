@@ -1,0 +1,71 @@
+public class Account { 
+
+    private double balance; 
+
+    public Account() { 
+
+        balance = 0; 
+
+    } 
+
+    public Account(double initialDeposit) { 
+
+        balance = initialDeposit; 
+
+    } 
+
+    public double getBalance() { 
+
+        return balance; 
+
+    } 
+
+    public double deposit(double amount) { 
+
+        try { 
+
+            if (amount >= 0) 
+
+                balance += amount; 
+
+            else 
+
+                throw new Exception("Exception: Deposit Error"); 
+
+        } 
+
+        catch (Exception e) { 
+
+            System.out.println(e.getMessage()); 
+
+        } 
+
+        return balance; 
+
+    } 
+
+    public double withdraw(double amount) { 
+
+        try { 
+
+            if ((amount > balance) || (amount < 0)) 
+
+                throw new Exception("Exception: Overdraft Error"); 
+
+            else 
+
+                balance -= amount; 
+
+        } 
+
+        catch (Exception e) { 
+
+            System.out.println(e.getMessage()); 
+
+        } 
+
+        return balance; 
+
+    } 
+
+} 

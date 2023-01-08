@@ -1,0 +1,105 @@
+import java.io.File; 
+
+import java.io.FileNotFoundException; 
+
+import java.util.Scanner; 
+
+public class BabyNameRanking { 
+
+    public static void main(String[] args) { 
+
+        Scanner keyboard = new Scanner(System.in); 
+
+        String theFileName = "C://Users//jcste//OneDrive//Documents//Computer-Science//Academic-Projects//CS2_Midterm//out//production//CS2_Midterm//babynameranking2017.csv"; 
+
+        String gender, babyName; 
+
+        int someNumber = 0; 
+
+        System.out.println("Enter a gender:"); 
+
+        gender = keyboard.nextLine(); 
+
+        System.out.println("Enter a name:"); 
+
+        babyName = keyboard.nextLine(); 
+
+        fileHandler(theFileName, gender, babyName); 
+
+    } 
+
+    private static void fileHandler(String fileName, String gender, String babyName) { 
+
+        boolean nameFound = false; 
+
+        String targetName = ""; 
+
+        String targetRanking = ""; 
+
+        try { 
+
+            File theFile = new File(fileName); 
+
+            Scanner inputStream = new Scanner(theFile); 
+
+            while(inputStream.hasNextLine()) { 
+
+                String line = inputStream.nextLine(); 
+
+                String[] ary = line.split(","); 
+
+                String ranking =  ary[0]; 
+
+                String boyName =  ary[1]; 
+
+                String girlName = ary[2]; 
+
+                if (gender.equalsIgnoreCase("M")) { 
+
+                    if (boyName.equalsIgnoreCase(babyName)) { 
+
+                        targetRanking = ranking; 
+
+                        nameFound = true; 
+
+                    } 
+
+                } 
+
+                else if (gender.equalsIgnoreCase("F")) { 
+
+                    if (girlName.equalsIgnoreCase(babyName)) { 
+
+                        targetRanking = ranking; 
+
+                        nameFound = true; 
+
+                    } 
+
+                } 
+
+            } 
+
+            if(nameFound) { 
+
+                System.out.println(babyName + " is ranked " + targetRanking); 
+
+            } 
+
+            else { 
+
+                System.out.println("Sorry, name " + babyName + " is not ranked."); 
+
+            } 
+
+        } catch (FileNotFoundException e) { 
+
+ 
+
+            System.out.println("EXCEPTION: File Not Found"); 
+
+        } 
+
+    } 
+
+} 

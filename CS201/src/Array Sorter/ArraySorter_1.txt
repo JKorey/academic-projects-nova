@@ -1,0 +1,65 @@
+import java.util.ArrayList; 
+
+public class ArraySorter_1 
+
+{ 
+
+    public static void selectionSort(ArrayList<String> anArray) 
+
+    { 
+
+        for (int index = 0; index < anArray.size() - 1; index++) 
+
+        { 
+
+            int indexOfNextSmallest = getIndexOfSmallest(index, anArray); 
+
+            interchange(index, indexOfNextSmallest, anArray); 
+
+        } 
+
+    } 
+
+    private static int getIndexOfSmallest(int startIndex, ArrayList<String> a) 
+
+    { 
+
+        int min =  startIndex; 
+
+        int indexOfMin = startIndex; 
+
+ 
+
+        for (int index = startIndex + 1; index < a.size(); index++) 
+
+        { 
+
+            if (a.get(index).compareTo(a.get(min)) < startIndex ) 
+
+            { 
+
+                min = a.indexOf(a.get(index)); 
+
+                indexOfMin = index; 
+
+            } 
+
+        } 
+
+        return indexOfMin; 
+
+    } 
+
+    private static void interchange(int i, int j, ArrayList<String> a) 
+
+    { 
+
+        String temp = a.get(i); 
+
+        a.set(i, a.get(j)); 
+
+        a.set(j, temp); 
+
+    } 
+
+} 
