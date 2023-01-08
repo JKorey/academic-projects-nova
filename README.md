@@ -1,2 +1,2 @@
 # academic-projects-nova
-NOVA academic project archive
+NOVA computer science academic project archive
